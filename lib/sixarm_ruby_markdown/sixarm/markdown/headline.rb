@@ -46,11 +46,11 @@ class SixArm::Markdown::Headline
   end
 
   def self.parse_line_level(line)
-    return (line =~/^ *([#=]+)/ ? $1.length : nil)
+    return line =~/^\s*([#=]+)/ ? $1.length : nil
   end
 
   def self.trim_line(line)
-    line.sub(/^ *[#=]+ +/, '').sub(/ +[#=]+ *$/, '')
+    line.sub(/^\s*[#=]+\s+/, '').sub(/\s+[#=]+\s*$/, '')
   end
 
   def self.text_to_anchor(text)

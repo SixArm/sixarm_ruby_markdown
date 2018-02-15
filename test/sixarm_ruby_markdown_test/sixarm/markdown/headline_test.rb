@@ -101,8 +101,8 @@ describe SixArm::Markdown::Headline do
       expect(headline.level).must_equal 3
     end
 
-    it "trim extraneous characters i.e. leading/trailing spaces and leading/trailing hashes" do
-      line = "   ###   Hello   ###   "
+    it "trim extraneous characters i.e. leading/trailing whitespace and leading/trailing hashes" do
+      line = "   ###   Hello   ###   \n"
       headline = SixArm::Markdown::Headline::parse_line(line)
       expect(headline.text).must_equal "Hello"
       expect(headline.level).must_equal 3
