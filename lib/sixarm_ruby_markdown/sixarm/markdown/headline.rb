@@ -5,6 +5,7 @@
 module SixArm; module Markdown; end; end
 
 class SixArm::Markdown::Headline
+  include EqualInstanceVariables
 
   attr_accessor \
     :text,

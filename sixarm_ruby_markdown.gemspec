@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name           = "sixarm_ruby_markdown"
   s.summary        = "SixArm.com → Ruby → Markdown"
   s.description    = "Markdown general purpose classes"
-  s.version        = "2.1.1"
+  s.version        = "2.1.2"
 
   s.author         = "SixArm"
   s.email          = "sixarm@sixarm.com"
@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
     "test/sixarm_ruby_markdown_test/sixarm/markdown/string_test.rb",
   ]
 
+  s.add_dependency("sixarm_ruby_equal_instance_variables", ">= 1", "< 2")
   s.add_dependency("sixarm_ruby_file_rewrite", ">= 1", "< 2")
   
   s.add_development_dependency("minitest", ">= 5.7.0", "< 6")
