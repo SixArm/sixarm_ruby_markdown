@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name           = "sixarm_ruby_markdown"
   s.summary        = "SixArm.com → Ruby → Markdown"
   s.description    = "Markdown general purpose classes"
-  s.version        = "2.1.2"
+  s.version        = "2.1.3"
 
   s.author         = "SixArm"
   s.email          = "sixarm@sixarm.com"
