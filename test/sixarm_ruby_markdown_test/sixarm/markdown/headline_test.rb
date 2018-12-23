@@ -11,6 +11,7 @@ describe SixArm::Markdown::Headline do
   let(:link_default){ "[Foo Goo Hoo](#foo-goo-hoo)" }
   let(:link_custom){ "[My Link Text](#my-link-anchor)" }
   let(:headline){ SixArm::Markdown::Headline.new(text: text) }
+  let(:some_atypical_characters){ "!@#$%^&*(){}[]|;':<>,.?/" }
 
   describe "#text" do
 
@@ -30,11 +31,20 @@ describe SixArm::Markdown::Headline do
       end
 
     end
+    
+    describe "with text with with atypical characters, which will be excised in the anchor" do
+
+      it "return default anchor" do
+        headline = SixArm::Markdown::Headline.new(text: some_atypical_characters + text + some_atypical_characters) 
+        expect(headline.anchor).must_equal anchor_default
+      end
+
+    end
 
     describe "with custom anchor" do
 
       it "return custom anchor" do
-        headline = SixArm::Markdown::Headline.new(text: text, anchor: anchor_custom) 
+        headline = SixArm::Markdown::Headline.new(text: text, anchor: anchor_custom)
         expect(headline.anchor).must_equal anchor_custom
       end
 
@@ -69,7 +79,19 @@ describe SixArm::Markdown::Headline do
     describe "with default, which is no link, thus uses autogeneration" do
 
       it "return default link, which is the Markdown formatting of the text and anchor" do
+        headline = SixArm::Markdown::Headline.new(text: text) 
         expect(headline.link).must_equal link_default
+      end
+
+    end
+
+    describe "with text with atypical characters, which will be excised in the link" do
+
+      it "return default link, which is the Markdown formatting of the text and anchor" do
+        text_atypical = some_atypical_characters + text + some_atypical_characters
+        link_atypical = "[#{text_atypical}](\##{anchor_default})"
+        headline = SixArm::Markdown::Headline.new(text: text_atypical) 
+        expect(headline.link).must_equal link_atypical
       end
 
     end

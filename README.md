@@ -50,9 +50,9 @@ To require the gem in your code:
 ## Tracking
 
 * Package: sixarm_ruby_markdown
-* Version: 2.1.1
+* Version: 3.1.0
 * Created: 2018-02-04
-* Updated: 2018-02-15
+* Updated: 2018-12-23
 * License: Open source as described in the file LICENSE.md
 * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 

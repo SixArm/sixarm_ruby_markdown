@@ -55,7 +55,7 @@ class SixArm::Markdown::Headline
   end
 
   def self.text_to_anchor(text)
-    text.downcase.gsub(/\W+/,'-')
+    text.downcase.gsub(/\W+/,'-').gsub(/^-+|-+$/,'')
   end
 
 end
